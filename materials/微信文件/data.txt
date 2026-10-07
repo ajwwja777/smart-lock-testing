@@ -1,0 +1,602 @@
+import router from '@ohos.router';
+import { MqttApi } from '../common/MqttApi';
+import { DatabaseHelper } from '../database/DatabaseHelper';
+import { UserModel } from '../model/DataBaseModels';
+import promptAction from '@ohos.promptAction';
+import { AuthDialog } from '../common/AuthDialog';
+
+// 定义MQTT消息的数据结构
+interface UnlockMessageData {
+  deviceName: string;
+  time: string;
+  unlockMethod: string;
+  result: string;
+}
+
+@Entry
+@Component
+struct SmartLockPage {
+  @State batteryLevel: number = 85
+  @State lockStatus: string = "已关闭"
+  @State isOnline: boolean = true
+  private dbHelper: DatabaseHelper = new DatabaseHelper()
+  private lockTimer: number = -1
+
+  async aboutToAppear() {
+    // 初始化数据库
+    await this.dbHelper.initDatabase(getContext(this));
+
+    // 初始化MQTT并设置消息监听
+    await this.initMqtt();
+
+    // 确保有默认用户存在
+    await this.ensureDefaultUser();
+  }
+
+  aboutToDisappear() {
+    // 清理定时器
+    if (this.lockTimer !== -1) {
+      clearTimeout(this.lockTimer);
+    }
+    // 断开MQTT连接
+    MqttApi.disconnect();
+  }
+
+  /**
+   * 确保有默认用户存在
+   */
+  private async ensureDefaultUser() {
+    try {
+      const users = await this.dbHelper.getAllUsers();
+      if (users.length === 0) {
+        // 创建默认用户
+        const defaultUser = new UserModel('admin', '123456');
+        await this.dbHelper.addUser(defaultUser);
+        console.log('创建默认用户: admin/123456');
+      }
+    } catch (error) {
+      console.error('创建默认用户失败:', error);
+    }
+  }
+
+  /**
+   * 初始化MQTT连接和消息监听
+   */
+  private async initMqtt() {
+    try {
+      const connected = await MqttApi.init();
+      if (connected) {
+        this.isOnline = true;
+        console.log('MQTT连接成功');
+
+        // 设置消息接收回调
+        MqttApi.onReceived((message: string) => {
+          this.handleMqttMessage(message);
+        });
+      } else {
+        this.isOnline = false;
+        console.error('MQTT连接失败');
+      }
+    } catch (error) {
+      console.error('MQTT初始化异常:', error);
+      this.isOnline = false;
+    }
+  }
+
+  /**
+   * 处理MQTT消息
+   */
+  private handleMqttMessage(message: string) {
+    try {
+      console.log('收到MQTT消息:', message);
+      const data: UnlockMessageData = JSON.parse(message);
+
+      // 验证消息格式是否正确
+      if (!this.isValidUnlockMessage(data)) {
+        console.log('收到的消息格式不正确，忽略处理');
+        return;
+      }
+
+      // 检查是否为开锁成功消息
+      if (data.result === 'success' &&
+        (data.unlockMethod === '远程开门' || data.unlockMethod === '指纹')) {
+
+        console.log(`检测到开锁成功 - 设备: ${data.deviceName}, 方式: ${data.unlockMethod}, 时间: ${data.time}`);
+        this.updateLockStatus();
+      } else {
+        console.log('收到开锁消息但结果不是成功或方式不匹配:', data);
+      }
+    } catch (error) {
+      console.error('解析MQTT消息失败:', error);
+    }
+  }
+
+  /**
+   * 验证开锁消息格式是否正确
+   */
+  private isValidUnlockMessage(data: UnlockMessageData): boolean {
+    return data &&
+      typeof data.deviceName === 'string' &&
+      typeof data.time === 'string' &&
+      typeof data.unlockMethod === 'string' &&
+      typeof data.result === 'string';
+  }
+
+  /**
+   * 更新门锁状态
+   */
+  private updateLockStatus() {
+    // 清除之前的定时器
+    if (this.lockTimer !== -1) {
+      clearTimeout(this.lockTimer);
+    }
+
+    // 设置为开启状态
+    this.lockStatus = "开启";
+
+    // 显示提示信息
+    promptAction.showToast({
+      message: '门锁已开启，3秒后自动关闭',
+      duration: 2000
+    });
+
+    // 3秒后自动关闭
+    this.lockTimer = setTimeout(() => {
+      this.lockStatus = "已关闭";
+      console.log('门锁自动关闭');
+
+      promptAction.showToast({
+        message: '门锁已自动关闭',
+        duration: 1500
+      });
+    }, 3000);
+  }
+  /**
+   * 二级身份验证 - 使用真实的弹窗输入
+   */
+  private async verifyUserIdentity(): Promise<boolean> {
+    return new Promise((resolve: (value: boolean) => void) => {
+      let dialogController: CustomDialogController | null = null;
+
+      const closeDialog = () => {
+        if (dialogController) {
+          dialogController.close();
+        }
+      };
+
+      dialogController = new CustomDialogController({
+        builder: AuthDialog({
+          onConfirm: async (username: string, password: string) => {
+            const isValid: boolean = await this.validateUserCredentials(username, password);
+            closeDialog();
+            resolve(isValid);
+          },
+          onCancel: () => {
+            closeDialog();
+            resolve(false);
+          }
+        }),
+        alignment: DialogAlignment.Center,
+        customStyle: true,
+        autoCancel: false
+      });
+
+      dialogController.open();
+    });
+  }
+  /**
+   * 验证用户凭据
+   */
+  private async validateUserCredentials(username: string, password: string): Promise<boolean> {
+    if (!username.trim() || !password.trim()) {
+      promptAction.showToast({
+        message: '请输入完整的用户名和密码',
+        duration: 2000
+      });
+      return false;
+    }
+
+    try {
+      const isValid = await this.dbHelper.validateUser(username.trim(), password.trim());
+
+      if (isValid) {
+        promptAction.showToast({
+          message: '身份验证成功',
+          duration: 1000
+        });
+        return true;
+      } else {
+        promptAction.showToast({
+          message: '用户名或密码错误，请重试',
+          duration: 2000
+        });
+        return false;
+      }
+    } catch (error) {
+      console.error('验证用户凭据失败:', error);
+      promptAction.showToast({
+        message: '验证过程出错，请重试',
+        duration: 2000
+      });
+      return false;
+    }
+  }
+
+  /**
+   * 需要验证的页面跳转
+   */
+  private async navigateWithAuth(targetPage: string, pageName: string) {
+    try {
+      promptAction.showToast({
+        message: '请进行身份验证...',
+        duration: 1000
+      });
+
+      const isVerified = await this.verifyUserIdentity();
+
+      if (isVerified) {
+        console.log(`验证通过，跳转到${pageName}`);
+        router.pushUrl({ url: targetPage });
+      } else {
+        promptAction.showToast({
+          message: '身份验证失败，无法访问该功能',
+          duration: 2000
+        });
+      }
+    } catch (error) {
+      console.error(`跳转${pageName}失败:`, error);
+      promptAction.showToast({
+        message: '跳转失败，请重试',
+        duration: 2000
+      });
+    }
+  }
+
+  build() {
+    Column() {
+      // 顶部标题栏 - 增加渐变背景和阴影效果
+      Row() {
+        Text("智能门锁")
+          .fontSize(28)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(Color.White)
+          .margin({left: 20})
+      }
+      .width('100%')
+      .height(80)
+      .padding({left: 15, right: 15, top: 20, bottom: 20})
+      .justifyContent(FlexAlign.Start)
+      .linearGradient({
+        direction: GradientDirection.Right,
+        colors: [['#4A90E2', 0.0], ['#357ABD', 1.0]]
+      })
+      .shadow({
+        radius: 10,
+        color: '#4A90E2',
+        offsetX: 0,
+        offsetY: 4
+      })
+
+      // 状态信息卡片 - 重新设计为卡片样式
+      Row() {
+        // 在线状态卡片
+        Column() {
+          Row() {
+            Text("🌐")
+              .fontSize(20)
+              .margin({right: 8})
+            Text("连接状态")
+              .fontSize(14)
+              .fontColor('#666666')
+          }
+          .margin({bottom: 8})
+
+          Text(this.isOnline ? "在线" : "离线")
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(this.isOnline ? '#4CAF50' : '#F44336')
+        }
+        .width('30%')
+        .height(100)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+        .backgroundColor(Color.White)
+        .borderRadius(15)
+        .shadow({
+          radius: 8,
+          color: '#E0E0E0',
+          offsetX: 0,
+          offsetY: 2
+        })
+
+        // 电池电量卡片
+        Column() {
+          Row() {
+            Text(this.getBatteryIcon(this.batteryLevel))
+              .fontSize(20)
+              .margin({right: 8})
+            Text("电池电量")
+              .fontSize(14)
+              .fontColor('#666666')
+          }
+          .margin({bottom: 8})
+
+          Text(`${this.batteryLevel}%`)
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(this.getBatteryColor(this.batteryLevel))
+        }
+        .width('30%')
+        .height(100)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+        .backgroundColor(Color.White)
+        .borderRadius(15)
+        .shadow({
+          radius: 8,
+          color: '#E0E0E0',
+          offsetX: 0,
+          offsetY: 2
+        })
+
+        // 门锁状态卡片 - 修改状态显示逻辑
+        Column() {
+          Row() {
+            Text(this.lockStatus === "已关闭" ? "🔒" : "🔓")
+              .fontSize(20)
+              .margin({right: 8})
+            Text("门锁状态")
+              .fontSize(14)
+              .fontColor('#666666')
+          }
+          .margin({bottom: 8})
+
+          Text(this.lockStatus)
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(this.lockStatus === "已关闭" ? '#4CAF50' : '#FF9800')
+        }
+        .width('30%')
+        .height(100)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+        .backgroundColor(Color.White)
+        .borderRadius(15)
+        .shadow({
+          radius: 8,
+          color: '#E0E0E0',
+          offsetX: 0,
+          offsetY: 2
+        })
+      }
+      .width('95%')
+      .justifyContent(FlexAlign.SpaceBetween)
+      .margin({top: 20, bottom: 30})
+
+      // 功能按钮区域 - 美化按钮样式
+      Grid() {
+        GridItem() {
+          Column() {
+            Text("🔐")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("临时密码管理")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            console.log("跳转临时密码页面");
+            this.navigateWithAuth('pages/TemporaryPassword', '临时密码管理');
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+
+        GridItem() {
+          Column() {
+            Text("📱")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("远程开锁")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            console.log("跳转远程开锁");
+            this.navigateWithAuth('pages/remoteunlocking', '远程开锁');
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+
+        GridItem() {
+          Column() {
+            Text("🚨")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("异常报警通知")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            // 异常报警通知不需要验证，直接跳转
+            router.pushUrl({ url: 'pages/AlarmRecordPage' })
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+
+        GridItem() {
+          Column() {
+            Text("📊")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("历史记录查询")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            // 历史记录查询不需要验证，直接跳转
+            router.pushUrl({ url: 'pages/test' })
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+
+        GridItem() {
+          Column() {
+            Text("🔑")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("密码管理")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            this.navigateWithAuth('pages/password identity management', '密码管理');
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+
+        // 指纹管理按钮
+        GridItem() {
+          Column() {
+            Text("👆")
+              .fontSize(32)
+              .margin({bottom: 12})
+            Text("指纹管理")
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .height('100%')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .backgroundColor(Color.White)
+          .borderRadius(20)
+          .shadow({
+            radius: 12,
+            color: '#E0E0E0',
+            offsetX: 0,
+            offsetY: 4
+          })
+          .onClick(() => {
+            this.navigateWithAuth('pages/finger identity management', '指纹管理');
+          })
+          .animation({
+            duration: 200,
+            curve: Curve.FastOutSlowIn
+          })
+        }
+      }
+      .columnsTemplate('1fr 1fr 1fr')
+      .rowsTemplate('1fr 1fr')
+      .columnsGap(20)
+      .rowsGap(20)
+      .width('95%')
+      .height('50%')
+      .margin({top: 20})
+    }
+    .width('100%')
+    .height('100%')
+    .linearGradient({
+      direction: GradientDirection.Bottom,
+      colors: [['#F5F7FA', 0.0], ['#C3CFE2', 1.0]]
+    })
+  }
+
+  getBatteryColor(level: number): string {
+    if (level > 70) return '#4CAF50'
+    if (level > 30) return '#FF9800'
+    return '#F44336'
+  }
+
+  getBatteryIcon(level: number): string {
+    if (level > 70) return '🔋'
+    if (level > 30) return '🪫'
+    return '🪫'
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-07",
+  "scope": "Wi-Fi SSID/password and MQTT username/password literals replaced in source-code document copies; matching long credential text removed from other Office text. Original desktop files unchanged.",
+  "files": [
+    {
+      "path": "materials/微信文件/智能门锁源程序（前30页）(1).docx",
+      "replacements": 6
+    },
+    {
+      "path": "materials/微信文件/智能门锁源程序（前30页）.docx",
+      "replacements": 6
+    }
+  ]
+}

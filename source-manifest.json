@@ -1,0 +1,545 @@
+{
+  "source": "C:\\Users\\wja\\Desktop\\智能门锁",
+  "import_date": "2026-10-07",
+  "files": [
+    {
+      "path": "materials/Demo.mp4",
+      "size_bytes": 43180875,
+      "sha256": "0ac3e6b260cb8a983fa7935e03ddc2080417a6bde7245a2c19a28ce32276f45d",
+      "published_sha256": "0ac3e6b260cb8a983fa7935e03ddc2080417a6bde7245a2c19a28ce32276f45d",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/9530fa1010316c728e7d2c3b065674b3.mp4",
+      "size_bytes": 43180875,
+      "sha256": "0ac3e6b260cb8a983fa7935e03ddc2080417a6bde7245a2c19a28ce32276f45d",
+      "published_sha256": "0ac3e6b260cb8a983fa7935e03ddc2080417a6bde7245a2c19a28ce32276f45d",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/git.md",
+      "size_bytes": 2026,
+      "sha256": "7b17005b741993a55cc5d1f77b78a42476a41ef6e838691a78d1a9cf633aa56f",
+      "published_sha256": "7b17005b741993a55cc5d1f77b78a42476a41ef6e838691a78d1a9cf633aa56f",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/story（最新.md",
+      "size_bytes": 751,
+      "sha256": "723264ef8aa525e22810eb331405d5801becbeb07ad057bdd71973dd0cc58717",
+      "published_sha256": "723264ef8aa525e22810eb331405d5801becbeb07ad057bdd71973dd0cc58717",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/提交日期.md",
+      "size_bytes": 301,
+      "sha256": "6150c6b62ff09b17ba03b05cac47937531cca30b7e95ca4808971f30db6a6ca3",
+      "published_sha256": "6150c6b62ff09b17ba03b05cac47937531cca30b7e95ca4808971f30db6a6ca3",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day1(1.md",
+      "size_bytes": 98,
+      "sha256": "753112d40a86b70f437aaad445c41b62c4404c1b69657df97e1f0669f83c56f5",
+      "published_sha256": "753112d40a86b70f437aaad445c41b62c4404c1b69657df97e1f0669f83c56f5",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day2.md",
+      "size_bytes": 31,
+      "sha256": "14db8ea06de64a66291f6e79bb2b00da2a47e8125c5eb16ac9aee5d02490629a",
+      "published_sha256": "14db8ea06de64a66291f6e79bb2b00da2a47e8125c5eb16ac9aee5d02490629a",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day3.md",
+      "size_bytes": 29,
+      "sha256": "2a70a6125d447ae712a9a99e28c9391e3c88b724823839202994d5c2e63b3673",
+      "published_sha256": "2a70a6125d447ae712a9a99e28c9391e3c88b724823839202994d5c2e63b3673",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day4.md",
+      "size_bytes": 84,
+      "sha256": "1ee200572cc99b458397dc2190a04cfb715f2928882c3f1a9051a0acda8ba01f",
+      "published_sha256": "1ee200572cc99b458397dc2190a04cfb715f2928882c3f1a9051a0acda8ba01f",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day5.md",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/日记/day6(2.md",
+      "size_bytes": 54,
+      "sha256": "9346b5851a7fd9e4031a6c9b894f716ca569c9343d1fd67fc5fa59bde3931fc7",
+      "published_sha256": "9346b5851a7fd9e4031a6c9b894f716ca569c9343d1fd67fc5fa59bde3931fc7",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/智能门锁产品汇报.pptx",
+      "size_bytes": 24636921,
+      "sha256": "eb7ea4e96d79c2e7db46671ebd630895adceb9abaab0df4531bea04ac73adedd",
+      "published_sha256": "eb7ea4e96d79c2e7db46671ebd630895adceb9abaab0df4531bea04ac73adedd",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/测试/更新的测试用例.md",
+      "size_bytes": 2024,
+      "sha256": "c2abc8e93ed6b4612a55bdd8e71379af85daa65808a62386befc32864dabf8dd",
+      "published_sha256": "c2abc8e93ed6b4612a55bdd8e71379af85daa65808a62386befc32864dabf8dd",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/测试/模板.md",
+      "size_bytes": 278,
+      "sha256": "5f749351f2879a14d92ed477cf21bc70aa8a37cebb0962706b07c629d32dada9",
+      "published_sha256": "5f749351f2879a14d92ed477cf21bc70aa8a37cebb0962706b07c629d32dada9",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/测试/测试步骤.md",
+      "size_bytes": 8903,
+      "sha256": "af54ba80fc90c48331e84095f292ae1b7bda4c983ab74e86d791a717dc2c4ddf",
+      "published_sha256": "af54ba80fc90c48331e84095f292ae1b7bda4c983ab74e86d791a717dc2c4ddf",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/需求书/需求书-功能.md",
+      "size_bytes": 2212,
+      "sha256": "8bf274a1444e60465b846edd4157e9abe065ae770a57e068f7e2685975f84d59",
+      "published_sha256": "8bf274a1444e60465b846edd4157e9abe065ae770a57e068f7e2685975f84d59",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/需求书/需求书-系统安全.md",
+      "size_bytes": 681,
+      "sha256": "06b2407905a3aa2d1ffad1551752cf978ff74fab703e79339c975847ce14ff4e",
+      "published_sha256": "06b2407905a3aa2d1ffad1551752cf978ff74fab703e79339c975847ce14ff4e",
+      "redacted": false
+    },
+    {
+      "path": "materials/学校实习（临时）/需求书/需求设计第一次老师提到的问题.md",
+      "size_bytes": 4097,
+      "sha256": "323b8dfc0ade2f9f92fa3b151a539678e02587d7bebeb7afe468af17598dc152",
+      "published_sha256": "323b8dfc0ade2f9f92fa3b151a539678e02587d7bebeb7afe468af17598dc152",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/131645843909613(1).docx",
+      "size_bytes": 154096,
+      "sha256": "507e287d9c23092479cd60852c3fd445bae9d057bb8b638005c4779173863759",
+      "published_sha256": "507e287d9c23092479cd60852c3fd445bae9d057bb8b638005c4779173863759",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/131645843909613.docx",
+      "size_bytes": 154096,
+      "sha256": "507e287d9c23092479cd60852c3fd445bae9d057bb8b638005c4779173863759",
+      "published_sha256": "507e287d9c23092479cd60852c3fd445bae9d057bb8b638005c4779173863759",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/data(1).txt",
+      "size_bytes": 17044,
+      "sha256": "ef815da43c065e692a669e33c30600d4fe8edadda170e4bc4df2f4fe54ae918a",
+      "published_sha256": "ef815da43c065e692a669e33c30600d4fe8edadda170e4bc4df2f4fe54ae918a",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/data.txt",
+      "size_bytes": 17044,
+      "sha256": "ef815da43c065e692a669e33c30600d4fe8edadda170e4bc4df2f4fe54ae918a",
+      "published_sha256": "ef815da43c065e692a669e33c30600d4fe8edadda170e4bc4df2f4fe54ae918a",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/Story列表_模板-v1(1).xlsx",
+      "size_bytes": 18210,
+      "sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "published_sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/Story列表_模板-v1(2)(1).xlsx",
+      "size_bytes": 18210,
+      "sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "published_sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/Story列表_模板-v1(2).xlsx",
+      "size_bytes": 18210,
+      "sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "published_sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/Story列表_模板-v1.xlsx",
+      "size_bytes": 18210,
+      "sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "published_sha256": "59c8273b48aab3529edb145098106697f285153dc9f8828966752f4aee6d4cda",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/ui(1).zip",
+      "size_bytes": 16434,
+      "sha256": "ee7cbc0293663bc3e71571a8352af79e2b0b68823ee3b26b0a3d0a5b9afd1984",
+      "published_sha256": "ee7cbc0293663bc3e71571a8352af79e2b0b68823ee3b26b0a3d0a5b9afd1984",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/ui.zip",
+      "size_bytes": 16434,
+      "sha256": "ee7cbc0293663bc3e71571a8352af79e2b0b68823ee3b26b0a3d0a5b9afd1984",
+      "published_sha256": "ee7cbc0293663bc3e71571a8352af79e2b0b68823ee3b26b0a3d0a5b9afd1984",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/专利业务管理系统-用户使用说明书(1).docx",
+      "size_bytes": 475637,
+      "sha256": "ddaa4d2cf93c11f4188b9f67acac1c04d159fbbab1294670710bf2c0e389ebc8",
+      "published_sha256": "ddaa4d2cf93c11f4188b9f67acac1c04d159fbbab1294670710bf2c0e389ebc8",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/专利业务管理系统-用户使用说明书.docx",
+      "size_bytes": 475637,
+      "sha256": "ddaa4d2cf93c11f4188b9f67acac1c04d159fbbab1294670710bf2c0e389ebc8",
+      "published_sha256": "ddaa4d2cf93c11f4188b9f67acac1c04d159fbbab1294670710bf2c0e389ebc8",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/产品名称Product name(1)(1).docx",
+      "size_bytes": 160448,
+      "sha256": "7e93676f5747663ce1638aa251f629b18f8c4d53eff11e5b010e04d2f49fbfb7",
+      "published_sha256": "7e93676f5747663ce1638aa251f629b18f8c4d53eff11e5b010e04d2f49fbfb7",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/产品名称Product name(1).docx",
+      "size_bytes": 160448,
+      "sha256": "7e93676f5747663ce1638aa251f629b18f8c4d53eff11e5b010e04d2f49fbfb7",
+      "published_sha256": "7e93676f5747663ce1638aa251f629b18f8c4d53eff11e5b010e04d2f49fbfb7",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/会议记录（简）_v1.1(1).dotx",
+      "size_bytes": 13738,
+      "sha256": "7a6aea468697a9253881f0b071fc04daf7848f6b24d227c2f6f35396bc8ad1a6",
+      "published_sha256": "7a6aea468697a9253881f0b071fc04daf7848f6b24d227c2f6f35396bc8ad1a6",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/会议记录（简）_v1.1.dotx",
+      "size_bytes": 13738,
+      "sha256": "7a6aea468697a9253881f0b071fc04daf7848f6b24d227c2f6f35396bc8ad1a6",
+      "published_sha256": "7a6aea468697a9253881f0b071fc04daf7848f6b24d227c2f6f35396bc8ad1a6",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁1(2)(1).docx",
+      "size_bytes": 66987,
+      "sha256": "879763d885344c473f534f852b1a5b3e0f1340864d9563ccfe684af2e4a07fb9",
+      "published_sha256": "879763d885344c473f534f852b1a5b3e0f1340864d9563ccfe684af2e4a07fb9",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁1(2).docx",
+      "size_bytes": 66987,
+      "sha256": "879763d885344c473f534f852b1a5b3e0f1340864d9563ccfe684af2e4a07fb9",
+      "published_sha256": "879763d885344c473f534f852b1a5b3e0f1340864d9563ccfe684af2e4a07fb9",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁1(3)(1).docx",
+      "size_bytes": 25999,
+      "sha256": "8b92dd8140b481bbdb38ed2b257320e587ba2e3e075e53e8e41acb55a4d25ae4",
+      "published_sha256": "8b92dd8140b481bbdb38ed2b257320e587ba2e3e075e53e8e41acb55a4d25ae4",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁1(3).docx",
+      "size_bytes": 25999,
+      "sha256": "8b92dd8140b481bbdb38ed2b257320e587ba2e3e075e53e8e41acb55a4d25ae4",
+      "published_sha256": "8b92dd8140b481bbdb38ed2b257320e587ba2e3e075e53e8e41acb55a4d25ae4",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(1).docx",
+      "size_bytes": 18369,
+      "sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "published_sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(3)(1).docx",
+      "size_bytes": 24032,
+      "sha256": "0dfcb9ee2b4966caa6bddd4b65727a16dfd15afc9ecdb3de9b0b3fc44057914c",
+      "published_sha256": "0dfcb9ee2b4966caa6bddd4b65727a16dfd15afc9ecdb3de9b0b3fc44057914c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(3).docx",
+      "size_bytes": 24032,
+      "sha256": "0dfcb9ee2b4966caa6bddd4b65727a16dfd15afc9ecdb3de9b0b3fc44057914c",
+      "published_sha256": "0dfcb9ee2b4966caa6bddd4b65727a16dfd15afc9ecdb3de9b0b3fc44057914c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(4)(1).docx",
+      "size_bytes": 18369,
+      "sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "published_sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(4).docx",
+      "size_bytes": 18369,
+      "sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "published_sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(6)(1).docx",
+      "size_bytes": 18016,
+      "sha256": "0598f82726b76c974cbb2cbbf7c4486706b70d647585a774dd93136b44470cd1",
+      "published_sha256": "0598f82726b76c974cbb2cbbf7c4486706b70d647585a774dd93136b44470cd1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析(6).docx",
+      "size_bytes": 18016,
+      "sha256": "0598f82726b76c974cbb2cbbf7c4486706b70d647585a774dd93136b44470cd1",
+      "published_sha256": "0598f82726b76c974cbb2cbbf7c4486706b70d647585a774dd93136b44470cd1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/全自动智能门锁详细需求分析.docx",
+      "size_bytes": 18369,
+      "sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "published_sha256": "364ca374a5e0212c75f7570af154f0fbbc7460c722151769dc845a95784c43d1",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/原型文件用户安全基础(1).pip",
+      "size_bytes": 308230,
+      "sha256": "a8421421efa5174f0d7cce7047062b8fb0bad53217bb67f6d6fbfe0e4f2809dd",
+      "published_sha256": "a8421421efa5174f0d7cce7047062b8fb0bad53217bb67f6d6fbfe0e4f2809dd",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/原型文件用户安全基础.pip",
+      "size_bytes": 308230,
+      "sha256": "a8421421efa5174f0d7cce7047062b8fb0bad53217bb67f6d6fbfe0e4f2809dd",
+      "published_sha256": "a8421421efa5174f0d7cce7047062b8fb0bad53217bb67f6d6fbfe0e4f2809dd",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/基于VSCode+PlatformIO的ESP32开发环境搭建手册_v1.1 (1)(1).pdf",
+      "size_bytes": 1108884,
+      "sha256": "e425b5f9f051e51a20ebd34b0c419198cc00bb50afcc0870cb0a8a076a1f79d3",
+      "published_sha256": "e425b5f9f051e51a20ebd34b0c419198cc00bb50afcc0870cb0a8a076a1f79d3",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/基于VSCode+PlatformIO的ESP32开发环境搭建手册_v1.1 (1).pdf",
+      "size_bytes": 1108884,
+      "sha256": "e425b5f9f051e51a20ebd34b0c419198cc00bb50afcc0870cb0a8a076a1f79d3",
+      "published_sha256": "e425b5f9f051e51a20ebd34b0c419198cc00bb50afcc0870cb0a8a076a1f79d3",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/技术要求(1).docx",
+      "size_bytes": 14655,
+      "sha256": "74de74a65c3148aa187d2e3035d947c5695233a85425afa845ac813eb381bc45",
+      "published_sha256": "74de74a65c3148aa187d2e3035d947c5695233a85425afa845ac813eb381bc45",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/技术要求.docx",
+      "size_bytes": 14655,
+      "sha256": "74de74a65c3148aa187d2e3035d947c5695233a85425afa845ac813eb381bc45",
+      "published_sha256": "74de74a65c3148aa187d2e3035d947c5695233a85425afa845ac813eb381bc45",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(1)(1)(1).pptx",
+      "size_bytes": 18506887,
+      "sha256": "580ec8d0fa4284ceaee6197961cf6bf0cb21762d26b0d8a13bfafe6aaa05025a",
+      "published_sha256": "580ec8d0fa4284ceaee6197961cf6bf0cb21762d26b0d8a13bfafe6aaa05025a",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(1)(1).pptx",
+      "size_bytes": 18506887,
+      "sha256": "580ec8d0fa4284ceaee6197961cf6bf0cb21762d26b0d8a13bfafe6aaa05025a",
+      "published_sha256": "580ec8d0fa4284ceaee6197961cf6bf0cb21762d26b0d8a13bfafe6aaa05025a",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(3)(1).pptx",
+      "size_bytes": 18886878,
+      "sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "published_sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(3)(2).pptx",
+      "size_bytes": 18886878,
+      "sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "published_sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(3).pptx",
+      "size_bytes": 18886878,
+      "sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "published_sha256": "5487d510f0597c69e334600edd4e2444412dd851f57436e4ef29ea22ec116578",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(7)(1).pptx",
+      "size_bytes": 16642297,
+      "sha256": "0f03bf08d815d2bc8878356fde4eec13a115303192dd2a733766fb9d6bbbad6e",
+      "published_sha256": "0f03bf08d815d2bc8878356fde4eec13a115303192dd2a733766fb9d6bbbad6e",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(7).pptx",
+      "size_bytes": 16642297,
+      "sha256": "0f03bf08d815d2bc8878356fde4eec13a115303192dd2a733766fb9d6bbbad6e",
+      "published_sha256": "0f03bf08d815d2bc8878356fde4eec13a115303192dd2a733766fb9d6bbbad6e",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(8)(1).pptx",
+      "size_bytes": 16745614,
+      "sha256": "a134eb3ab1c2d436a3c779bb91889d63f31d4aebf9fd651eeb380e667fbd2d05",
+      "published_sha256": "a134eb3ab1c2d436a3c779bb91889d63f31d4aebf9fd651eeb380e667fbd2d05",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁产品汇报(8).pptx",
+      "size_bytes": 16745614,
+      "sha256": "a134eb3ab1c2d436a3c779bb91889d63f31d4aebf9fd651eeb380e667fbd2d05",
+      "published_sha256": "a134eb3ab1c2d436a3c779bb91889d63f31d4aebf9fd651eeb380e667fbd2d05",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/智能门锁源程序（前30页）(1).docx",
+      "size_bytes": 48310,
+      "sha256": "77275e8e505f5f8b39f658c06f3ed4d3b6c7ff3dc735c02b08e35c0d2268d813",
+      "published_sha256": "4163830494f9314e5011b102d6226dc6fcf14786e3d4a1648ed0ade6d0277817",
+      "redacted": true
+    },
+    {
+      "path": "materials/微信文件/智能门锁源程序（前30页）.docx",
+      "size_bytes": 48310,
+      "sha256": "77275e8e505f5f8b39f658c06f3ed4d3b6c7ff3dc735c02b08e35c0d2268d813",
+      "published_sha256": "4163830494f9314e5011b102d6226dc6fcf14786e3d4a1648ed0ade6d0277817",
+      "redacted": true
+    },
+    {
+      "path": "materials/微信文件/材料(1).docx",
+      "size_bytes": 2007927,
+      "sha256": "021213eb2c50cb1c8aed6e77180c3fb7b26128a26027e33a2d396001e5737455",
+      "published_sha256": "021213eb2c50cb1c8aed6e77180c3fb7b26128a26027e33a2d396001e5737455",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/材料.docx",
+      "size_bytes": 2007927,
+      "sha256": "021213eb2c50cb1c8aed6e77180c3fb7b26128a26027e33a2d396001e5737455",
+      "published_sha256": "021213eb2c50cb1c8aed6e77180c3fb7b26128a26027e33a2d396001e5737455",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/清单(1).rtf",
+      "size_bytes": 36280,
+      "sha256": "064bc28529c1112eca17014bdf96b46f1f8c272605c2e33f260316688dc07c20",
+      "published_sha256": "064bc28529c1112eca17014bdf96b46f1f8c272605c2e33f260316688dc07c20",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/清单.rtf",
+      "size_bytes": 36280,
+      "sha256": "064bc28529c1112eca17014bdf96b46f1f8c272605c2e33f260316688dc07c20",
+      "published_sha256": "064bc28529c1112eca17014bdf96b46f1f8c272605c2e33f260316688dc07c20",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/第3组会议记录(1)(1).docx",
+      "size_bytes": 14314,
+      "sha256": "c958db9ae4e2a43f12c6f23ba07b9d02aed2ba4954dc1a2aaa0f89483456bf3f",
+      "published_sha256": "c958db9ae4e2a43f12c6f23ba07b9d02aed2ba4954dc1a2aaa0f89483456bf3f",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/第3组会议记录(1).docx",
+      "size_bytes": 14314,
+      "sha256": "c958db9ae4e2a43f12c6f23ba07b9d02aed2ba4954dc1a2aaa0f89483456bf3f",
+      "published_sha256": "c958db9ae4e2a43f12c6f23ba07b9d02aed2ba4954dc1a2aaa0f89483456bf3f",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/第3组会议记录(2).docx",
+      "size_bytes": 16075,
+      "sha256": "66499358d8db28fd355d4acfdba90ba9aeb1084764375becae4b415c440c997c",
+      "published_sha256": "66499358d8db28fd355d4acfdba90ba9aeb1084764375becae4b415c440c997c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/第3组会议记录.docx",
+      "size_bytes": 16075,
+      "sha256": "66499358d8db28fd355d4acfdba90ba9aeb1084764375becae4b415c440c997c",
+      "published_sha256": "66499358d8db28fd355d4acfdba90ba9aeb1084764375becae4b415c440c997c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/需求设计第一次老师提到的问题(1)(1).pdf",
+      "size_bytes": 172836,
+      "sha256": "9a9112d2de5a12b1b14d3791ff67f83e050fb11fd1fc93b9217954bda1f5dcc0",
+      "published_sha256": "9a9112d2de5a12b1b14d3791ff67f83e050fb11fd1fc93b9217954bda1f5dcc0",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/需求设计第一次老师提到的问题(1).pdf",
+      "size_bytes": 172836,
+      "sha256": "9a9112d2de5a12b1b14d3791ff67f83e050fb11fd1fc93b9217954bda1f5dcc0",
+      "published_sha256": "9a9112d2de5a12b1b14d3791ff67f83e050fb11fd1fc93b9217954bda1f5dcc0",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/项目管理系统-用户使用说明书(1)(1).docx",
+      "size_bytes": 591163,
+      "sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "published_sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/项目管理系统-用户使用说明书(1).docx",
+      "size_bytes": 591163,
+      "sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "published_sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/项目管理系统-用户使用说明书(2).docx",
+      "size_bytes": 591163,
+      "sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "published_sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "redacted": false
+    },
+    {
+      "path": "materials/微信文件/项目管理系统-用户使用说明书.docx",
+      "size_bytes": 591163,
+      "sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "published_sha256": "10805ee9a4ce6eb7944a53502a91d7479bac3e01ab9294b121a807c7021d509c",
+      "redacted": false
+    }
+  ]
+}
